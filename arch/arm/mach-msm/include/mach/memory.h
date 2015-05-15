@@ -19,6 +19,30 @@
 
 /* physical offset of RAM */
 #define PLAT_PHYS_OFFSET UL(CONFIG_PHYS_OFFSET)
+
+/* OLD Define
+#if defined(CONFIG_KEXEC_HARDBOOT)
+#if defined(CONFIG_MACH_APQ8064_FLO)
+#define KEXEC_HB_PAGE_ADDR		UL(0x88C00000)
+#elif defined(CONFIG_MACH_APQ8064_MAKO)
+#define KEXEC_HB_PAGE_ADDR		UL(0x88600000)
+#elif defined(CONFIG_MACH_MSM8974_HAMMERHEAD)
+#define KEXEC_HB_PAGE_ADDR		UL(0x10100000)
+#define KEXEC_HB_KERNEL_LOC		UL(0x3208000)
+#else
+#error "Adress for kexec hardboot page not defined"
+#endif
+#endif
+*/
+
+#if defined(CONFIG_KEXEC_HARDBOOT)
+#define KEXEC_HB_PAGE_ADDR	UL(0xDD800000)
+#define KEXEC_HB_KERNEL_LOC	UL(0x4800000)
+#endif
+
+/* #define KEXEC_HB_PAGE_ADDR UL(0x7D800000) this is good for the 2Gb version*/
+/*#define KEXEC_HB_PAGE_ADDR UL(0xDD800000) this is good for the 3Gb version*/
+
 #define MAX_PHYSMEM_BITS 32
 #define SECTION_SIZE_BITS 28
 
