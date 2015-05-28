@@ -1,7 +1,7 @@
 #
 # 777 Kernel
 #
-CONFIG_LOCALVERSION="-AOSP-777-Kernel"
+CONFIG_LOCALVERSION="-PacZilla-777-MR-Patched-Kernel"
 
 # TCP Options
 CONFIG_TCP_CONG_ADVANCED=y
