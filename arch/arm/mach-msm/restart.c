@@ -386,19 +386,19 @@ late_initcall(msm_pmic_restart_init);
 #ifdef CONFIG_KEXEC_HARDBOOT
 static void msm_kexec_hardboot_hook(void)
 {
- set_dload_mode(0);
+	set_dload_mode(0);
 
- // Set PMIC to restart-on-poweroff
- pm8xxx_reset_pwr_off(1);
+	// Set PMIC to restart-on-poweroff
+	pm8xxx_reset_pwr_off(1);
 
- // These are executed on normal reboot, but with kexec-hardboot,
- // they reboot/panic the system immediately.
+	// These are executed on normal reboot, but with kexec-hardboot,
+	// they reboot/panic the system immediately.
 #if 0
- qpnp_pon_system_pwr_off(PON_POWER_OFF_WARM_RESET);
+	qpnp_pon_system_pwr_off(PON_POWER_OFF_WARM_RESET);
 
- /* Needed to bypass debug image on some chips */
- msm_disable_wdog_debug();
- halt_spmi_pmic_arbiter();
+	/* Needed to bypass debug image on some chips */
+	msm_disable_wdog_debug();
+	halt_spmi_pmic_arbiter();
 #endif
 }
 #endif
